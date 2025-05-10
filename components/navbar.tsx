@@ -15,6 +15,7 @@ import NextLink from "next/link";
 import clsx from "clsx";
 import { siteConfig } from "@/config/site";
 import { TwitterIcon, Logo } from "@/components/icons";
+import { FaTelegramPlane } from "react-icons/fa";
 
 export const Navbar = () => {
   return (
@@ -22,59 +23,106 @@ export const Navbar = () => {
       maxWidth="xl"
       position="sticky"
       className={clsx(
-        "z-50 shadow-sm",
-        "bg-[linear-gradient(to_bottom_right,_#1B0F3B,_#432371,_#7C3AED,_#d6d6e7,_#7C3AED,_#432371,_#1B0F3B)]",
-        "bg-[length:400%_400%] animate-bg-slide-diagonal text-white border-b border-[#432371]"
+        "z-50 bg-gradient-to-b from-[#1B0F3B]/90 to-[#1B0F3B]/70 backdrop-blur-md shadow-md",
+        "text-white drop-shadow-md transition-all duration-500"
       )}
     >
-      {/* Sol Logo */}
+      {/* Left Logo */}
       <NavbarContent justify="start">
         <NavbarBrand as="div" className="flex items-center gap-2">
           <NextLink href="/" className="flex items-center gap-2">
             <Logo />
-            <span className="font-semibold text-lg">{siteConfig.name}</span>
+            <span className="font-semibold text-lg">MoonadSwap</span>
           </NextLink>
         </NavbarBrand>
       </NavbarContent>
 
-      {/* Orta Menü - Masaüstü */}
+      {/* Mid - Desktop */}
       <NavbarContent className="hidden lg:flex gap-6" justify="center">
         {siteConfig.navItems.map((item) => (
           <NavbarItem key={item.href}>
             <NextLink
               href={item.href}
-              className="text-white hover:text-violet-300 transition-colors font-medium"
+              className="text-gray-300 drop-shadow-md hover:text-violet-300 transition-colors font-medium"
             >
               {item.label}
             </NextLink>
           </NavbarItem>
         ))}
+
+        {/* Docs link */}
+        <NavbarItem>
+          <a
+            href="https://t.me/moonswapxbot"
+            target="_blank"
+            rel="noopener noreferrer"
+            /* group = to hover children together */
+            className="group flex items-center gap-1 text-gray-300 drop-shadow-md
+               hover:text-violet-300 transition-colors font-medium"
+          >
+            {/* Text */}
+            <span className="group-hover:underline">Docs</span>
+
+            {/* Arrow icon */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              /* starts hidden – becomes visible and moves slightly right on hover */
+              className="w-3 h-3 opacity-0 translate-x-[-4px]
+                 group-hover:opacity-100 group-hover:translate-x-0
+                 transition-all duration-200"
+            >
+              <path
+                fillRule="evenodd"
+                d="M4.97 1.97a.75.75 0 011.06 0L11.53 7.47a.75.75 0 010 1.06L6.03 14.03a.75.75 0 11-1.06-1.06L9.44 8 4.97 3.53a.75.75 0 010-1.06z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </a>
+        </NavbarItem>
       </NavbarContent>
 
-      {/* Sağ İkonlar + Buton */}
+      {/* Right Side - Social + Bot Button */}
       <NavbarContent justify="end" className="gap-3">
         <NavbarItem className="hidden sm:flex gap-2">
-          <Link isExternal aria-label="Twitter" href={siteConfig.links.twitter}>
-            <TwitterIcon className="text-white hover:text-violet-300" />
+          <Link
+            isExternal
+            aria-label="Twitter"
+            href={siteConfig.links.twitter}
+            className="text-gray-300 drop-shadow-md hover:text-violet-300"
+          >
+            <TwitterIcon />
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Button
-            as={Link}
-            href="https://t.me/your_bot_username"
-            color="secondary"
-            radius="full"
-            variant="shadow"
-            className="px-5 font-semibold"
+          <Link
+            href="https://t.me/moonswapxbot"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 bg-violet-500 px-3 py-2 rounded-xl shadow-md hover:bg-violet-600 transition-all"
           >
-            🚀 Launch Bot
-          </Button>
+            {/* Telegram icon circle */}
+            <div className="bg-white p-1.5 rounded-full flex items-center justify-center">
+              <FaTelegramPlane className="text-violet-500 text-xl" />
+            </div>
+
+            {/* Text block on the right */}
+            <div className="flex flex-col leading-tight">
+              <span className="bg-white text-black text-[10px] font-bold px-2 py-0.5 rounded-full self-start mb-1">
+                AVAILABLE
+              </span>
+              <span className="text-white font-bold text-sm -mt-1">
+                TELEGRAM
+              </span>
+            </div>
+          </Link>
         </NavbarItem>
         <NavbarMenuToggle className="sm:hidden text-white" />
       </NavbarContent>
 
-      {/* Mobil Menü */}
-      <NavbarMenu className="bg-[#1B0F3B] text-white">
+      {/* Mobile Menu */}
+      <NavbarMenu className="bg-[#1B0F3B]/90 backdrop-blur-md text-white">
         {siteConfig.navMenuItems.map((item) => (
           <NavbarMenuItem key={item.href}>
             <NextLink
@@ -87,10 +135,15 @@ export const Navbar = () => {
         ))}
         <NavbarMenuItem>
           <Link
-            href="https://t.me/your_bot_username"
-            className="text-violet-300 hover:underline font-medium"
+            href="https://t.me/moonswapxbot"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 bg-violet-500 px-4 py-2 rounded-xl shadow-md hover:bg-violet-600 transition-all"
           >
-            🚀 Launch Bot
+            <div className="flex items-center gap-2 text-white font-semibold text-sm">
+              <FaTelegramPlane className="text-white text-lg" />
+              Launch Bot
+            </div>
           </Link>
         </NavbarMenuItem>
       </NavbarMenu>

@@ -14,13 +14,20 @@ const config = {
         mono: ['var(--font-mono)'],
       },
       animation: {
-        'bg-slide': 'bgSlide 40s linear infinite alternate',
+        'bg-slide': 'bgSlide 10s linear infinite alternate',
       },
       keyframes: {
         bgSlide: {
           '0%': { backgroundPosition: '0% 0%' },
           '100%': { backgroundPosition: '100% 100%' },
         },
+      },
+      backgroundSize: {
+        'full': '100% 100%',
+        'cover': 'cover',
+      },
+      backgroundAttachment: {
+        'fixed': 'fixed',
       },
     },
   },

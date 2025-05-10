@@ -1,3 +1,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+    scroll-behavior: smooth;
+  }
+  
+
+@keyframes diagonal-flow {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+.bg-animated {
+  background: linear-gradient(135deg, #1B0F3B, #432371, #6E2FB4, #1B0F3B);
+  background-size: 400% 400%;
+  animation: diagonal-flow 40s ease-in-out infinite alternate;
+}
+
+@keyframes logoPulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+  
+  .animate-logo-pulse {
+    animation: logoPulse 4s ease-in-out infinite;
+  }
+
+body {
+  cursor: url("/cursor-sniper.png") 16 16, auto;
+}
+
+
+body.clicked {
+  cursor: url("/cursor-sniper-fire.png") 16 16, auto;
+}
+
+    
+  

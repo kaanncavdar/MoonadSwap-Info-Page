@@ -5,53 +5,41 @@ export const siteConfig = {
   description: "MoonadSwap Telegram Bot",
   navItems: [
     {
-      label: "Home",
-      href: "/",
+      label: "Getting Started",
+      href: "#getting-started",
     },
     {
-      label: "Docs",
-      href: "/docs",
+      label: "Features",
+      href: "#features",
     },
+    {
+      label: "Roadmap",
+      href: "#roadmap",
+    }
   ],
   navMenuItems: [
     {
-      label: "Profile",
-      href: "/profile",
+      label: "Getting Started",
+      href: "#getting-started",
     },
     {
-      label: "Dashboard",
-      href: "/dashboard",
+      label: "Features",
+      href: "#features",
     },
     {
-      label: "Projects",
-      href: "/projects",
+      label: "Roadmap",
+      href: "#roadmap",
     },
     {
-      label: "Team",
-      href: "/team",
-    },
-    {
-      label: "Calendar",
-      href: "/calendar",
-    },
-    {
-      label: "Settings",
-      href: "/settings",
-    },
-    {
-      label: "Help & Feedback",
-      href: "/help-feedback",
-    },
-    {
-      label: "Logout",
-      href: "/logout",
+      label: "Docs",
+      href: "https://t.me/moonswapxbot",
+      target: "_blank",
+      rel: "noopener noreferrer",
     },
   ],
   links: {
-    github: "https://github.com/heroui-inc/heroui",
     twitter: "https://x.com/moonadswap",
-    docs: "https://heroui.com",
+    docs: "https://t.me/moonswapxbot",
     discord: "https://discord.gg/9b6yyZKmH4",
-    sponsor: "https://patreon.com/jrgarciadev",
   },
 };

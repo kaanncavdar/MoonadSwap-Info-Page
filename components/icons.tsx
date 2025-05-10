@@ -3,7 +3,7 @@ import * as React from "react";
 import { IconSvgProps } from "@/types";
 
 export const Logo: React.FC<{ size?: number; className?: string }> = ({
-  size = 50,
+  size = 60,
   className,
 }) => (
   <img
