@@ -48,7 +48,10 @@ const HeroBackground = () => {
           const newY = circle.y - circle.speed;
           return {
             ...circle,
-            y: newY < -circle.size ? window.innerHeight * 0.6 + circle.size : newY,
+            y:
+              newY < -circle.size
+                ? window.innerHeight * 0.6 + circle.size
+                : newY,
           };
         })
       );
@@ -119,16 +122,10 @@ export default function Home() {
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
-                fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
+                fill="currentColor"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                />
+                <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.1-.357.1-.496.03l.204-3.096 5.584-5.045c.24-.213-.054-.334-.373-.121l-6.871 4.326-2.962-.924c-.643-.203-.658-.643.136-.953l11.566-4.458c.538-.196 1.006.128.832.941z" />
               </svg>
               Launch on Telegram
             </motion.a>
@@ -138,11 +135,17 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, scale: 0.75 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, delay: 0.4, type: "spring", stiffness: 80, damping: 12 }}
+            transition={{
+              duration: 1.2,
+              delay: 0.4,
+              type: "spring",
+              stiffness: 80,
+              damping: 12,
+            }}
             className="relative w-[360px] h-[360px] rounded-full overflow-hidden shadow-xl"
           >
             <Image
-              src="/MoonadSwap-NavLogo.png" // You can use a more vibrant logo or illustration
+              src="/MoonadSwap-NavLogo.png"
               alt="MoonadSwap Logo"
               fill
               className="object-cover drop-shadow-[0_0_60px_rgba(102,126,234,0.6)]"

@@ -35,14 +35,18 @@ html {
     animation: logoPulse 4s ease-in-out infinite;
   }
 
-body {
-  cursor: url("/cursor-sniper.png") 16 16, auto;
-}
+  html, body, * {
+    cursor: url("/cursor-sniper.png") 16 16, none !important;
+  }
+  
+  /* Özel durumlar için (örneğin butonlar) */
+  button, a {
+    cursor: url("/cursor-pointer.png") 16 16, pointer !important;
+  }
+  html:active, body:active, *:active {
+    cursor: url('/cursor-sniper-fire.png'), pointer;
+  }
 
-
-body.clicked {
-  cursor: url("/cursor-sniper-fire.png") 16 16, auto;
-}
 
     
   

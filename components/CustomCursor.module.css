@@ -1,0 +1,22 @@
+.cursor {
+    width: 64px;
+    height: 64px;
+    background-image: url('/cursor-sniper.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: 
+      background-image 0.05s ease-out,
+      width 0.05s ease-out,
+      height 0.05s ease-out;
+    backface-visibility: hidden;
+    image-rendering: crisp-edges;
+  }
+  
+  .cursor.clicking {
+    background-image: url('/cursor-sniper-fire.png');
+    width: 72px;
+    height: 72px;
+  }

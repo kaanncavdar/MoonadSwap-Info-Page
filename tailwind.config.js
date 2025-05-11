@@ -29,6 +29,14 @@ const config = {
       backgroundAttachment: {
         'fixed': 'fixed',
       },
+      // Özel imleç desteği ekleniyor
+      cursor: {
+        'none': 'none',
+        'custom-default': 'url(/cursor-sniper.png), default',
+        'custom-pointer': 'url(/cursor-sniper.png), pointer',
+        'custom-text': 'url(/cursor-sniper.pngg), text',
+        'custom-wait': 'url(/cursor-sniper.png), wait',
+      },
     },
   },
   darkMode: 'class',

@@ -9,12 +9,12 @@ import {
   NavbarMenuToggle,
   NavbarMenuItem,
 } from "@heroui/navbar";
-import { Button } from "@heroui/button";
 import { Link } from "@heroui/link";
 import NextLink from "next/link";
 import clsx from "clsx";
 import { siteConfig } from "@/config/site";
 import { TwitterIcon, Logo } from "@/components/icons";
+import { FaXTwitter } from "react-icons/fa6";
 import { FaTelegramPlane } from "react-icons/fa";
 
 export const Navbar = () => {
@@ -92,7 +92,7 @@ export const Navbar = () => {
             href={siteConfig.links.twitter}
             className="text-gray-300 drop-shadow-md hover:text-violet-300"
           >
-            <TwitterIcon />
+            <FaXTwitter />
           </Link>
         </NavbarItem>
         <NavbarItem>
