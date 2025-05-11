@@ -35,17 +35,27 @@ html {
     animation: logoPulse 4s ease-in-out infinite;
   }
 
-  html, body, * {
-    cursor: url("/cursor-sniper.png") 16 16, none !important;
-  }
-  
-  /* Özel durumlar için (örneğin butonlar) */
-  button, a {
-    cursor: url("/cursor-pointer.png") 16 16, pointer !important;
-  }
-  html:active, body:active, *:active {
-    cursor: url('/cursor-sniper-fire.png'), pointer;
-  }
+
+html, body, * {
+  cursor: url("/cursor-sniper.png") 16 16, none !important;
+}
+
+
+a, button, [role="button"], [onclick], [tabindex] {
+  cursor: url("/cursor-sniper.png") 16 16, none !important;
+}
+
+
+html:active, body:active, *:active,
+a:active, button:active, [role="button"]:active {
+  cursor: url('/cursor-sniper-fire.png') 16 16, none !important;
+}
+
+
+a:hover, button:hover {
+  transform: translateY(-1px);
+
+}
 
 
     
