@@ -94,12 +94,11 @@ const itemVariants = {
 };
 
 export default function RoadmapSection() {
-  return (
-    <section id="roadmap" className="relative py-32 bg-transparent">
+  return (    <section id="roadmap" className="relative py-16 sm:py-24 lg:py-32 bg-transparent">
       
 
       
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-20">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -109,9 +108,8 @@ export default function RoadmapSection() {
             className="inline-block mb-3"
           >
           </motion.div>
-          
-          <motion.h2
-            className="text-6xl font-bold text-center mb-6 text-white tracking-tight"
+            <motion.h2
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center mb-6 text-white tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -128,10 +126,8 @@ export default function RoadmapSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
           </motion.p>
-        </div>
-
-        <motion.div 
-          className="grid gap-8 md:grid-cols-3 bg-transparent"
+        </div>        <motion.div 
+          className="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 bg-transparent"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -154,8 +150,7 @@ export default function RoadmapSection() {
                       const Icon = categories[0].icon;
                       return <Icon className="h-6 w-6 text-cyan-400" strokeWidth={2} />;
                     })()}
-                  </div>
-                  <h3 className="text-2xl font-bold text-white tracking-wide">
+                  </div>                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-wide">
                     {quarter}
                   </h3>
                 </div>
@@ -165,8 +160,7 @@ export default function RoadmapSection() {
                   {categories.map(({ icon: Icon, title, points }, catIndex) => (
                     <div key={catIndex} className={catIndex > 0 ? "pt-6 border-t border-gray-800/50" : ""}>
                       <div className="flex items-center gap-3 mb-4">
-                        <Icon className="h-5 w-5 text-cyan-400" strokeWidth={2} />
-                        <h4 className="text-xl font-bold text-white">
+                        <Icon className="h-5 w-5 text-cyan-400" strokeWidth={2} />                        <h4 className="text-lg sm:text-xl font-bold text-white">
                           {title}
                           <div className="h-px w-12 bg-gradient-to-r from-cyan-400 to-transparent mt-1"></div>
                         </h4>

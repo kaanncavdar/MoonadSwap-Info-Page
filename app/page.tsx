@@ -21,31 +21,39 @@ type Circle = {
 
 const HeroBackground = () => {
   const [circles, setCircles] = useState<Circle[]>([]);
-
   useEffect(() => {
     const createCircle = () => {
-      const size = Math.random() * 80 + 20;
+      // Adjust size based on screen width
+      const maxSize = window.innerWidth < 640 ? 50 : 80;
+      const minSize = window.innerWidth < 640 ? 10 : 20;
+      const size = Math.random() * (maxSize - minSize) + minSize;
+      
       const x = Math.random() * window.innerWidth;
-      const y = Math.random() * window.innerHeight * 0.6; 
+      const y = Math.random() * window.innerHeight * 0.6;
       const speed = Math.random() * 0.5 + 0.2;
-      const opacity = Math.random() * 0.15 + 0.05; 
-
+      // Higher opacity on mobile for better visibility
+      const opacity = Math.random() * 0.15 + (window.innerWidth < 640 ? 0.1 : 0.05);
 
       const hue = Math.random() > 0.5 ? "6, 182, 212" : "59, 130, 246"; 
       const color = `rgba(${hue}, ${opacity})`;
 
       return { x, y, size, speed, color };
-    };
-
-    const generateInitialCircles = () => {
+    };    const generateInitialCircles = () => {
       const initialCircles = [];
-      for (let i = 0; i < 15; i++) {
+      // Reduce number of circles on mobile to improve performance
+      const circleCount = window.innerWidth < 640 ? 8 : 15;
+      for (let i = 0; i < circleCount; i++) {
         initialCircles.push(createCircle());
       }
       setCircles(initialCircles);
+    };    generateInitialCircles();
+    
+    // Handle resize to adjust circles for different screen sizes
+    const handleResize = () => {
+      generateInitialCircles();
     };
-
-    generateInitialCircles();
+    
+    window.addEventListener('resize', handleResize);
 
     const animateCircles = () => {
       setCircles((prevCircles) =>
@@ -60,11 +68,12 @@ const HeroBackground = () => {
           };
         })
       );
+    };    const animationInterval = setInterval(animateCircles, 30);
+
+    return () => {
+      clearInterval(animationInterval);
+      window.removeEventListener('resize', handleResize);
     };
-
-    const animationInterval = setInterval(animateCircles, 30);
-
-    return () => clearInterval(animationInterval);
   }, []);
 
   return (
@@ -95,29 +104,24 @@ const HeroBackground = () => {
 export default function Home() {
   return (
     <main className="min-h-screen w-full relative bg-transparent">
-      <HeroBackground />
-      <section className="min-h-screen flex items-start lg:items-center pt-0 mt-[-4rem]">
-        <div className="mx-auto max-w-7xl px-6 flex flex-col lg:flex-row items-center gap-16 lg:-translate-y-6">
-          <motion.div
+      <HeroBackground />      <section className="min-h-[calc(100vh-64px)] flex items-center lg:items-center pt-8 sm:pt-10 lg:pt-0 mt-0 lg:mt-[-4rem]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 flex flex-col lg:flex-row items-center gap-8 lg:gap-16 lg:-translate-y-6">          <motion.div
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
-            className="max-w-xl"
-          >
-            <motion.h1
+            className="max-w-xl pt-4 sm:pt-0"
+          ><motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="text-white font-extrabold text-6xl leading-tight mb-8 tracking-tight"
+              className="text-white font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight mb-6 sm:mb-8 tracking-tight"
             >
               Swap with Anytime, Everywhere on Monad.
-            </motion.h1>
-
-            <motion.p
+            </motion.h1><motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.7, delay: 0.5 }}
-              className="text-gray-300 text-lg mb-16"
+              className="text-gray-300 text-base sm:text-lg mb-10 sm:mb-16"
             >
               Swap in seconds. Own every trade.
               <br />
@@ -131,10 +135,9 @@ export default function Home() {
               href=""
               onClick={(e) => e.preventDefault()}
               target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-400 
-                         border border-cyan-500/30 hover:border-cyan-500/50 font-medium px-8 py-4 
-                         rounded-xl transition-all duration-300 text-lg"
+              rel="noopener noreferrer"              className="inline-flex items-center gap-3 bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-400 
+                         border border-cyan-500/30 hover:border-cyan-500/50 font-medium px-4 sm:px-8 py-3 sm:py-4 
+                         rounded-xl transition-all duration-300 text-sm sm:text-lg"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -160,7 +163,7 @@ export default function Home() {
               stiffness: 80,
               damping: 12,
             }}
-            className="relative w-[600px] h-[600px] rounded-full shadow-[0_0_30px_rgba(6,182,212,0.15)]"
+            className="relative w-full h-[280px] sm:h-[350px] md:h-[500px] lg:w-[600px] lg:h-[600px] rounded-full shadow-[0_0_30px_rgba(6,182,212,0.15)] mt-6 sm:mt-8 lg:mt-0"
           >
             <Image
               src="/moonadSwap-bg.png"
@@ -170,20 +173,18 @@ export default function Home() {
             />
           </motion.div>
         </div>
-      </section>
-
-      <section id="getting-started" className="scroll-mt-[20px]">
+      </section>      <section id="getting-started" className="scroll-mt-[72px]">
         <GettingStartedSection />
       </section>
 
-      <section id="features" className="scroll-mt-[80px]">
+      <section id="features" className="scroll-mt-[72px]">
         <FeaturesSection />
       </section>
 
-      <section id="roadmap" className="scroll-mt-[80px] mb-24">
+      <section id="roadmap" className="scroll-mt-[72px] mb-12 sm:mb-24">
         <RoadmapSection />
       </section>
-      <section id="footer" className="scroll-mt-[80px] mb-24">
+      <section id="footer" className="scroll-mt-[72px] mb-12 sm:mb-24">
         <Footer />
       </section>
     </main>

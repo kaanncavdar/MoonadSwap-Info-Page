@@ -27,10 +27,9 @@ const Footer = () => {
     });
   };
 
-  return (
-    <footer className="pt-16 pb-8 relative bg-transparent backdrop-blur-sm">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
+  return (    <footer className="pt-10 sm:pt-16 pb-8 relative bg-transparent backdrop-blur-sm">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 mb-8 sm:mb-12">
           {/* Logo ve Bot Başlatma */}
           <div className="flex flex-col gap-6">
             <Link href="/" className="inline-block">
@@ -50,28 +49,24 @@ const Footer = () => {
               <p className="text-gray-300 text-sm max-w-md">
                 Fast. Simple. Secure.
                 Telegram-Native Swap Bot on Monad.
-              </p>
-
-              <a
+              </p>              <a
                 href=""
                 target="_blank"
                 onClick={(e) => e.preventDefault()}
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-400 
-                border border-cyan-500/30 hover:border-cyan-500/50 px-6 py-3 rounded-lg transition-all duration-300 w-fit"
+                border border-cyan-500/30 hover:border-cyan-500/50 px-4 sm:px-6 py-2 sm:py-3 rounded-lg transition-all duration-300 w-fit text-sm sm:text-base"
               >
                 <FaTelegram size={30} />
                 <span className="font-medium">Launch Bot on Telegram</span>
                 <ExternalLink size={14} />
               </a>
             </div>
-          </div>
-
-          {/* Email Subscribe & Links */}
-          <div className="flex flex-col items-end gap-8">
+          </div>          {/* Email Subscribe & Links */}
+          <div className="flex flex-col items-start md:items-end gap-6 sm:gap-8">
             {/* Email Form */}
             <form onSubmit={handleSubmit} className="w-full md:max-w-md">
-              <h3 className="text-white font-medium mb-3 text-right">
+              <h3 className="text-white font-medium mb-3 text-left md:text-right">
                 Get Updates
               </h3>
               <div className="flex gap-2">
@@ -97,8 +92,7 @@ const Footer = () => {
               </div>
             </form>
 
-            {/* Social Links */}
-            <div className="flex flex-col items-end gap-3">
+            {/* Social Links */}            <div className="flex flex-col items-start md:items-end gap-3">
               <h3 className="text-white font-medium">Follow Us</h3>
               <div className="flex gap-3">
                 <a
@@ -125,9 +119,8 @@ const Footer = () => {
 
         {/* Yukarı Çık Butonu */}
         <motion.button
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-400 
-                    border border-cyan-500/30 hover:border-cyan-500/50 rounded-full p-3
+          onClick={scrollToTop}          className="fixed bottom-4 sm:bottom-8 right-4 sm:right-8 bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-400 
+                    border border-cyan-500/30 hover:border-cyan-500/50 rounded-full p-2 sm:p-3
                     transition-all duration-300 shadow-lg shadow-cyan-500/10 backdrop-blur-sm
                     z-50 flex items-center justify-center
                     hover:shadow-xl hover:shadow-cyan-500/20"

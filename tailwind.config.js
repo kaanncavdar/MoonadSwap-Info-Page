@@ -28,13 +28,15 @@ const config = {
       },
       backgroundAttachment: {
         'fixed': 'fixed',
-      },
-      cursor: {
+      },      cursor: {
         'none': 'none',
         'custom-default': 'url(/cursor-sniper.png), default',
         'custom-pointer': 'url(/cursor-sniper.png), pointer',
-        'custom-text': 'url(/cursor-sniper.pngg), text',
+        'custom-text': 'url(/cursor-sniper.png), text',
         'custom-wait': 'url(/cursor-sniper.png), wait',
+      },
+      screens: {
+        'xs': '480px',
       },
     },
   },

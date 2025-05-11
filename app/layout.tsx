@@ -17,7 +17,12 @@ export const metadata: Metadata = {
   },
 };
 
-export const viewport: Viewport = {};
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+};
 
 export default function RootLayout({
   children,
@@ -34,15 +39,13 @@ export default function RootLayout({
         className={clsx(
           "min-h-screen font-sans antialiased",
           "bg-[length:300%_300%] bg-no-repeat animate-bg-slide",
-          "bg-[conic-gradient(from_230.29deg_at_51.63%_52.16%,_#1B0F3B_0deg,_#1B0F3B_67.5deg,_#432371_198.75deg,_#6E2FB4_250.88deg,_#1B0F3B_360deg)]",
-          "cursor-none"
+          "bg-[conic-gradient(from_230.29deg_at_51.63%_52.16%,_#1B0F3B_0deg,_#1B0F3B_67.5deg,_#432371_198.75deg,_#6E2FB4_250.88deg,_#1B0F3B_360deg)]"
         )}
       >
         <Providers themeProps={{ attribute: "class" }}>
           <CursorProvider />
           <div className="relative flex flex-col min-h-screen">
-            <Navbar />
-            <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
+            <Navbar />            <main className="container mx-auto max-w-7xl pt-2 sm:pt-4 px-4 sm:px-6 flex-grow">
               {children}
             </main>
           </div>

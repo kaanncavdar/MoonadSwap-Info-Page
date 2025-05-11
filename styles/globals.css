@@ -30,19 +30,20 @@ html {
   }
 
 
-html, body, * {
-  cursor: url("/cursor-sniper.png") 16 16, none !important;
-}
-
-
-a, button, [role="button"], [onclick], [tabindex] {
-  cursor: url("/cursor-sniper.png") 16 16, none !important;
-}
-
-
-html:active, body:active, *:active,
-a:active, button:active, [role="button"]:active {
-  cursor: url('/cursor-sniper-fire.png') 16 16, none !important;
+/* Custom cursor only for desktop/larger screens */
+@media (min-width: 768px) {
+  html, body, * {
+    cursor: url("/cursor-sniper.png") 16 16, none !important;
+  }
+  
+  a, button, [role="button"], [onclick], [tabindex] {
+    cursor: url("/cursor-sniper.png") 16 16, none !important;
+  }
+  
+  html:active, body:active, *:active,
+  a:active, button:active, [role="button"]:active {
+    cursor: url('/cursor-sniper-fire.png') 16 16, none !important;
+  }
 }
 
 

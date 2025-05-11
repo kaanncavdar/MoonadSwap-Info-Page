@@ -57,15 +57,13 @@ multi-bot control and in-app token purchases (MoonPay).`,
     }
   };
 
-  return (
-    <section
+  return (    <section
       id="getting-started"
-      className="relative py-32 bg-transparent"
+      className="relative py-16 sm:py-24 lg:py-32 bg-transparent"
     >
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-20">
-          <motion.h2
-            className="text-6xl font-bold text-center mb-6 text-white tracking-tight"
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <div className="text-center mb-20">          <motion.h2
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center mb-6 text-white tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -97,9 +95,9 @@ multi-bot control and in-app token purchases (MoonPay).`,
               variants={itemVariants}
               className="group bg-transparent"
             >
-              <div className="relative rounded-2xl border border-gray-800/80 bg-gray-900/50 backdrop-blur-sm p-8 h-full overflow-hidden transition-all duration-300 hover:border-cyan-500/50 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)]">
+              <div className="relative rounded-2xl border border-gray-800/80 bg-gray-900/50 backdrop-blur-sm p-4 sm:p-6 lg:p-8 h-full overflow-hidden transition-all duration-300 hover:border-cyan-500/50 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)]">
                 {/* Resim */}
-                <div className="relative w-full aspect-[4/3] mb-6 rounded-lg overflow-hidden">
+                <div className="relative w-full aspect-[4/3] mb-4 sm:mb-6 rounded-lg overflow-hidden">
                   <Image
                     src={image}
                     alt={title}
@@ -114,12 +112,11 @@ multi-bot control and in-app token purchases (MoonPay).`,
                 </div>
 
                 {/* Metin */}
-                <div className="relative flex flex-col h-[200px]">
-                  <h3 className="text-xl font-bold text-white mb-4 tracking-wide flex items-center">
+                <div className="relative flex flex-col h-[180px] sm:h-[200px]">                  <h3 className="text-lg sm:text-xl font-bold text-white mb-4 tracking-wide flex items-center">
                     {title}
-                    <div className="ml-auto h-px w-12 bg-gradient-to-r from-cyan-400 to-transparent"></div>
+                    <div className="ml-auto h-px w-8 sm:w-12 bg-gradient-to-r from-cyan-400 to-transparent"></div>
                   </h3>
-                  <p className="text-gray-300 whitespace-pre-line">
+                  <p className="text-gray-300 whitespace-pre-line text-sm sm:text-base">
                     {description}
                   </p>
                   

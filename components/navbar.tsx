@@ -16,12 +16,21 @@ import { siteConfig } from "@/config/site";
 import { TwitterIcon, Logo } from "@/components/icons";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaTelegramPlane } from "react-icons/fa";
+import { useState } from "react";
 
 export const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+  
   return (
     <HeroUINavbar
       maxWidth="xl"
       position="sticky"
+      isMenuOpen={isMenuOpen}
+      onMenuOpenChange={setIsMenuOpen}
       className={clsx(
         "z-50 bg-gradient-to-b from-[#1B0F3B]/90 to-[#1B0F3B]/70 backdrop-blur-md shadow-md",
         "text-white drop-shadow-md transition-all duration-500"
@@ -32,7 +41,7 @@ export const Navbar = () => {
         <NavbarBrand as="div" className="flex items-center gap-2">
           <NextLink href="/" className="flex items-center gap-2">
             <Logo />
-            <span className="font-semibold text-lg">MoonadSwap</span>
+            <span className="font-semibold text-base sm:text-lg">MoonadSwap</span>
           </NextLink>
         </NavbarBrand>
       </NavbarContent>
@@ -86,14 +95,13 @@ export const Navbar = () => {
 
       {/* Right Side - Social + Bot Button */}
       <NavbarContent justify="end" className="gap-3">
-        <NavbarItem className="hidden sm:flex gap-2">
-          <Link
+        <NavbarItem className="hidden sm:flex gap-2">          <Link
             isExternal
             aria-label="Twitter"
             href={siteConfig.links.twitter}
             className="text-gray-300 drop-shadow-md hover:text-violet-300"
           >
-            <FaXTwitter size={25} />
+            <FaXTwitter size={22} />
           </Link>
         </NavbarItem>
         <NavbarItem>
@@ -102,34 +110,33 @@ export const Navbar = () => {
             onClick={(e) => e.preventDefault()}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-violet-500 px-3 py-2 rounded-xl shadow-md hover:bg-violet-600 transition-all"
+            className="flex items-center gap-1 sm:gap-2 bg-violet-500 px-2 sm:px-3 py-1.5 sm:py-2 rounded-xl shadow-md hover:bg-violet-600 transition-all"
           >
-            {/* Telegram icon circle */}
-            <div className="bg-white p-1.5 rounded-full flex items-center justify-center">
-              <FaTelegramPlane className="text-violet-500 text-xl" />
+            {/* Telegram icon circle */}              <div className="bg-white p-1 sm:p-1.5 rounded-full flex items-center justify-center">
+              <FaTelegramPlane className="text-violet-500 text-base sm:text-xl" />
             </div>
 
-            {/* Text block on the right */}
-            <div className="flex flex-col leading-tight">
-              <span className="bg-white text-black text-[10px] font-bold px-2 py-0.5 rounded-full self-start mb-1">
+            {/* Text block on the right */}              <div className="flex flex-col leading-tight">              <span className="bg-white text-black text-[8px] sm:text-[10px] font-bold px-1.5 sm:px-2 py-0.5 rounded-full self-start mb-0.5 sm:mb-1">
                 AVAILABLE
               </span>
-              <span className="text-white font-bold text-sm -mt-1">
+              <span className="text-white font-bold text-xs sm:text-sm -mt-1">
                 TELEGRAM
               </span>
             </div>
           </Link>
         </NavbarItem>
-        <NavbarMenuToggle className="sm:hidden text-white" />
+        <NavbarMenuToggle className="sm:hidden text-white" aria-label="Toggle navigation menu" />
       </NavbarContent>
 
       {/* Mobile Menu */}
       <NavbarMenu className="bg-[#1B0F3B]/90 backdrop-blur-md text-white">
         {siteConfig.navMenuItems.map((item) => (
-          <NavbarMenuItem key={item.href}>
-            <NextLink
+          <NavbarMenuItem key={item.href}>            <NextLink
               href={item.href}
-              className="block py-2 text-lg hover:text-violet-400"
+              className="block py-3 text-base sm:text-lg hover:text-violet-400"
+              onClick={() => {
+                closeMenu();
+              }}
             >
               {item.label}
             </NextLink>

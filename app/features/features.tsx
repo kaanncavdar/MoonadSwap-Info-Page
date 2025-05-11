@@ -59,10 +59,9 @@ const itemVariants = {
 };
 
 export default function FeaturesSection() {
-  return (
-    <section id="features" className="relative py-32 bg-transparent">
+  return (    <section id="features" className="relative py-16 sm:py-24 lg:py-32 bg-transparent">
       {/* Ana bölümün içeriği */}
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-20">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -71,10 +70,8 @@ export default function FeaturesSection() {
             transition={{ duration: 0.6 }}
             className="inline-block mb-3"
           >
-          </motion.div>
-
-          <motion.h2
-            className="text-6xl font-bold text-center mb-6 text-white tracking-tight"
+          </motion.div>          <motion.h2
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center mb-6 text-white tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -91,10 +88,8 @@ export default function FeaturesSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
           </motion.p>
-        </div>
-
-        <motion.div
-          className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 bg-transparent"
+        </div>        <motion.div
+          className="grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 bg-transparent"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -106,19 +101,18 @@ export default function FeaturesSection() {
               variants={itemVariants}
               className="group bg-transparent"
             >
-              <div className="relative rounded-2xl border border-gray-800/80 bg-gray-900/50 backdrop-blur-sm p-8 h-full overflow-hidden transition-all duration-300 hover:border-cyan-500/50 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)]">
+              <div className="relative rounded-2xl border border-gray-800/80 bg-gray-900/50 backdrop-blur-sm p-4 sm:p-6 lg:p-8 h-full overflow-hidden transition-all duration-300 hover:border-cyan-500/50 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)]">
                 {/* İkon */}
-                <div className="relative mb-6 inline-flex p-3 rounded-lg bg-cyan-500/10 border border-cyan-500/20">
+                <div className="relative mb-4 sm:mb-6 inline-flex p-2 sm:p-3 rounded-lg bg-cyan-500/10 border border-cyan-500/20">
                   <Icon className="h-6 w-6 text-cyan-400" strokeWidth={2} />
                 </div>
 
                 {/* İçerik */}
-                <div className="relative">
-                  <h3 className="text-xl font-bold text-white mb-4 tracking-wide flex items-center">
+                <div className="relative">                  <h3 className="text-lg sm:text-xl font-bold text-white mb-4 tracking-wide flex items-center">
                     {title}
                     <div className="ml-auto h-px w-12 bg-gradient-to-r from-cyan-400 to-transparent"></div>
                   </h3>
-                  <p className="text-gray-300 leading-relaxed">
+                  <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
                     {desc}
                   </p>
                 </div>
