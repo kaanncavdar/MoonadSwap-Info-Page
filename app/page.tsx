@@ -104,7 +104,7 @@ const HeroBackground = () => {
 export default function Home() {
   return (
     <main className="min-h-screen w-full relative bg-transparent">
-      <HeroBackground />      <section className="min-h-[calc(100vh-64px)] flex items-center lg:items-center pt-8 sm:pt-10 lg:pt-0 mt-0 lg:mt-[-4rem]">
+      <HeroBackground />      <section className="min-h-[calc(100vh-64px)] flex items-start lg:items-center pt-20 sm:pt-16 lg:pt-0 mt-0 lg:mt-[-4rem]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 flex flex-col lg:flex-row items-center gap-8 lg:gap-16 lg:-translate-y-6">          <motion.div
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
