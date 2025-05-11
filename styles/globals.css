@@ -16,12 +16,6 @@ html {
   }
 }
 
-.bg-animated {
-  background: linear-gradient(135deg, #1B0F3B, #432371, #6E2FB4, #1B0F3B);
-  background-size: 400% 400%;
-  animation: diagonal-flow 40s ease-in-out infinite alternate;
-}
-
 @keyframes logoPulse {
     0%, 100% {
       transform: scale(1);

@@ -53,8 +53,9 @@ export const Navbar = () => {
         {/* Docs link */}
         <NavbarItem>
           <a
-            href="https://t.me/moonswapxbot"
+            href=""
             target="_blank"
+            onClick={(e) => e.preventDefault()}
             rel="noopener noreferrer"
             /* group = to hover children together */
             className="group flex items-center gap-1 text-gray-300 drop-shadow-md
@@ -92,12 +93,13 @@ export const Navbar = () => {
             href={siteConfig.links.twitter}
             className="text-gray-300 drop-shadow-md hover:text-violet-300"
           >
-            <FaXTwitter />
+            <FaXTwitter size={25} />
           </Link>
         </NavbarItem>
         <NavbarItem>
           <Link
-            href="https://t.me/moonswapxbot"
+            href=""
+            onClick={(e) => e.preventDefault()}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 bg-violet-500 px-3 py-2 rounded-xl shadow-md hover:bg-violet-600 transition-all"
@@ -135,8 +137,9 @@ export const Navbar = () => {
         ))}
         <NavbarMenuItem>
           <Link
-            href="https://t.me/moonswapxbot"
+            href=""
             target="_blank"
+            onClick={(e) => e.preventDefault()}
             rel="noopener noreferrer"
             className="flex items-center gap-3 bg-violet-500 px-4 py-2 rounded-xl shadow-md hover:bg-violet-600 transition-all"
           >

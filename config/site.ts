@@ -32,14 +32,13 @@ export const siteConfig = {
     },
     {
       label: "Docs",
-      href: "https://t.me/moonswapxbot",
+      href: "",
       target: "_blank",
       rel: "noopener noreferrer",
     },
   ],
   links: {
     twitter: "https://x.com/moonadswap",
-    docs: "https://t.me/moonswapxbot",
-    discord: "https://discord.gg/9b6yyZKmH4",
+    docs: ""
   },
 };

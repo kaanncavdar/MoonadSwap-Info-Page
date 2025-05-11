@@ -14,7 +14,7 @@ const config = {
         mono: ['var(--font-mono)'],
       },
       animation: {
-        'bg-slide': 'bgSlide 10s linear infinite alternate',
+        'bg-slide': 'bgSlide 20s linear infinite alternate',
       },
       keyframes: {
         bgSlide: {
@@ -29,7 +29,6 @@ const config = {
       backgroundAttachment: {
         'fixed': 'fixed',
       },
-      // Özel imleç desteği ekleniyor
       cursor: {
         'none': 'none',
         'custom-default': 'url(/cursor-sniper.png), default',

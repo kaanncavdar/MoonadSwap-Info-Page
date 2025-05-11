@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { ExternalLink } from "lucide-react";
 
 export default function GettingStartedSection() {
   const features = [
@@ -9,89 +10,140 @@ export default function GettingStartedSection() {
       title: "TELEGRAM BOT",
       image: "/telegrambot-ios-android-mockup.png",
       description: `Swap tokens inside Telegram — fast, secure and friction-free.
-Powered by Monad’s high-performance chain, the bot executes
+Powered by Monad's high-performance chain, the bot executes
 trades in milliseconds with minimal steps — no DEX hopping,
 no browser required.`,
       cta: {
         label: "OPEN TELEGRAM BOT",
-        href: "https://t.me/moonswapxbot",
-        disabled: false,
+        href: "#getting-started",
+        disabled: true,
       },
     },
     {
       id: "mobile-app",
       title: "MOBILE APP",
-      image: "/MobileApp.png", // placeholder ekle
+      image: "/MobileApp.png",
       description: `The same seamless trading experience is coming to mobile.
 Alpha/Beta rollout is planned for Q4 2025 with push notifications,
 multi-bot control and in-app token purchases (MoonPay).`,
       cta: {
         label: "COMING SOON",
-        href: "#",
+        href: "#getting-started",
         disabled: true,
       },
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 20,
+        stiffness: 100
+      }
+    }
+  };
+
   return (
     <section
       id="getting-started"
-      className="mx-auto max-w-7xl px-6 py-24 flex flex-col gap-16"
+      className="relative py-32 bg-transparent"
     >
-      <h2 className="text-3xl font-bold text-white text-center lg:text-left">
-        Getting Started
-      </h2>
-
-      <div className="grid gap-12 lg:grid-cols-2">
-        {features.map(({ id, title, image, description, cta }) => (
-          <motion.article
-            key={id}
-            initial={{ opacity: 0, y: 30 }}
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="text-center mb-20">
+          <motion.h2
+            className="text-6xl font-bold text-center mb-6 text-white tracking-tight"
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="bg-gradient-to-b from-[#1a1a1a] to-[#111] border border-[#2a2a2a] rounded-2xl shadow-lg p-6 flex flex-col hover:shadow-xl transition-shadow"
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            {/* Resim */}
-            <div className="relative w-full aspect-[4/3] mb-6 rounded-lg overflow-hidden">
-              <Image
-                src={image}
-                alt={title}
-                fill
-                className="object-cover object-top"
-              />
-              {cta.disabled && (
-                <div className="absolute inset-0 bg-black/70 flex items-center justify-center text-white text-xl font-bold">
-                  COMING SOON
-                </div>
-              )}
-            </div>
+            GETTING STARTED
+          </motion.h2>
+          
+          <motion.p
+            className="max-w-2xl mx-auto text-gray-300 text-xl"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+          </motion.p>
+        </div>
 
-            {/* Metin */}
-            <h3 className="text-white text-2xl font-semibold mb-4">{title}</h3>
-            <p className="text-gray-300 whitespace-pre-line mb-8">
-              {description}
-            </p>
-
-            {/* CTA */}
-            <a
-              href={cta.href}
-              target={cta.disabled ? undefined : "_blank"}
-              rel={cta.disabled ? undefined : "noopener noreferrer"}
-              className={`mt-auto inline-flex justify-center items-center px-5 py-3 rounded-xl font-medium text-sm transition
-                ${
-                  cta.disabled
-                    ? "bg-gray-700 text-gray-400 cursor-not-allowed"
-                    : "bg-[#28A8EA] hover:bg-[#1e8bc3] text-white shadow-md rounded-xl"
-                }`}
-                style={{ borderRadius: '8px', boxShadow: '0 2px 5px rgba(0, 0, 0, 0.2)' }}
+        <motion.div 
+          className="grid gap-8 md:grid-cols-2 bg-transparent"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          {features.map(({ id, title, image, description, cta }) => (
+            <motion.div
+              key={id}
+              variants={itemVariants}
+              className="group bg-transparent"
             >
-              {cta.label}
-            </a>
-          </motion.article>
-        ))}
+              <div className="relative rounded-2xl border border-gray-800/80 bg-gray-900/50 backdrop-blur-sm p-8 h-full overflow-hidden transition-all duration-300 hover:border-cyan-500/50 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)]">
+                {/* Resim */}
+                <div className="relative w-full aspect-[4/3] mb-6 rounded-lg overflow-hidden">
+                  <Image
+                    src={image}
+                    alt={title}
+                    fill
+                    className="object-cover object-top"
+                  />
+                  {cta.disabled && (
+                    <div className="absolute inset-0 bg-black/70 flex items-center justify-center text-white text-xl font-bold">
+                      COMING SOON
+                    </div>
+                  )}
+                </div>
+
+                {/* Metin */}
+                <div className="relative flex flex-col h-[200px]">
+                  <h3 className="text-xl font-bold text-white mb-4 tracking-wide flex items-center">
+                    {title}
+                    <div className="ml-auto h-px w-12 bg-gradient-to-r from-cyan-400 to-transparent"></div>
+                  </h3>
+                  <p className="text-gray-300 whitespace-pre-line">
+                    {description}
+                  </p>
+                  
+                  {/* CTA */}
+                  <a
+                    href={cta.href}
+                    target={cta.disabled ? undefined : "_blank"}
+                    rel={cta.disabled ? undefined : "noopener noreferrer"}
+                    className={`mt-auto inline-flex justify-center items-center px-5 py-3 rounded-xl font-medium text-sm transition
+                      ${
+                        cta.disabled
+                          ? "bg-gray-700/50 text-gray-400 cursor-not-allowed border border-gray-700"
+                          : "bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-400 border border-cyan-500/30 hover:border-cyan-500/50"
+                      }`}
+                  >
+                    {cta.label}
+                    {!cta.disabled && <ExternalLink className="ml-2 h-4 w-4" />}
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
 }
-

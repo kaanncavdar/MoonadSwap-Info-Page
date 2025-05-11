@@ -1,103 +1,200 @@
 "use client";
 import { motion } from "framer-motion";
-import {
-  Rocket,
-  LayoutDashboard,
-  Smartphone,
-  Terminal,
-} from "lucide-react";
+import { Rocket, LayoutDashboard, Smartphone, Terminal } from "lucide-react";
 
-type RoadmapItem = {
-  icon: React.ElementType;
+type QuarterData = {
   quarter: string;
-  title: string;
-  points: string[];
+  color: string;
+  categories: {
+    icon: React.ElementType;
+    title: string;
+    points: string[];
+  }[];
 };
 
-const roadmap: RoadmapItem[] = [
+const roadmapData: QuarterData[] = [
   {
-    icon: Rocket,
     quarter: "Q2 2025",
-    title: "Launch",
-    points: [
-      "Telegram bot live",
-      "Core swaps (paste-to-trade, slippage, favorites)",
-      "Monad tokens support",
-      "User feedback collection",
+    color: "#06b6d4", 
+    categories: [
+      {
+        icon: Rocket,
+        title: "Platform Launch",
+        points: [
+          "Telegram bot live deployment",
+          "Advanced swap features implementation",
+          "Multi-chain token support integration",
+          "User feedback analytics system",
+        ],
+      },
     ],
   },
   {
-    icon: LayoutDashboard,
     quarter: "Q3 2025",
-    title: "UX & Growth",
-    points: [
-      "Admin dashboard",
-      "Error handling & retries",
-      "Community marketing",
-      "Contributor incentives",
+    color: "#06b6d4", 
+    categories: [
+      {
+        icon: LayoutDashboard,
+        title: "UX Revolution",
+        points: [
+          "Enterprise-grade admin dashboard",
+          "Smart error recovery system",
+          "Global community expansion",
+          "Contributor reward programs",
+        ],
+      },
+      {
+        icon: Terminal,
+        title: "Mobile Evolution",
+        points: [
+          "Cross-platform prototyping",
+          "Scalable architecture development",
+          "Next-gen mobile interface designs",
+        ],
+      },
     ],
   },
   {
-    icon: Terminal,
-    quarter: "Q3 2025",
-    title: "Mobile-First",
-    points: [
-      "Feasibility & prototyping",
-      "Dev starts if user threshold met",
-      "Alpha designs: wallet, notifications, swap",
-    ],
-  },
-  {
-    icon: Smartphone,
     quarter: "Q4 2025",
-    title: "Mobile Rollout",
-    points: [
-      "Alpha/Beta mobile app",
-      "Multi-bot support & push notifications",
-      "In-app token purchases (MoonPay)",
+    color: "#06b6d4", 
+    categories: [
+      {
+        icon: Smartphone,
+        title: "Mobile Dominance",
+        points: [
+          "Public beta app release",
+          "AI-powered notification system",
+          "Fiat on-ramp integration",
+        ],
+      },
     ],
   },
 ];
 
-export const RoadmapSection = () => (
-  <section id="roadmap" className="py-24">
-    <div className="max-w-7xl mx-auto px-6">
-      <motion.h2
-        className="text-3xl md:text-4xl font-extrabold text-white mb-12 text-center"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-      >
-        Roadmap
-      </motion.h2>
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
 
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
-        {roadmap.map(({ icon: Icon, quarter, title, points }, i) => (
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      damping: 20,
+      stiffness: 100
+    }
+  }
+};
+
+export default function RoadmapSection() {
+  return (
+    <section id="roadmap" className="relative py-32 bg-transparent">
+      
+
+      
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="text-center mb-20">
           <motion.div
-            key={title}
-            className="rounded-2xl border border-white/10 bg-gray-900/70 p-6 shadow-md backdrop-blur"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="inline-block mb-3"
+          >
+          </motion.div>
+          
+          <motion.h2
+            className="text-6xl font-bold text-center mb-6 text-white tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: i * 0.1 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="flex items-center gap-3 mb-4">
-              <Icon size={28} strokeWidth={1.8} className="text-[#28A8EA]" />
-              <div>
-                <p className="text-sm text-white/60 font-medium">{quarter}</p>
-                <h3 className="text-lg font-semibold text-white">{title}</h3>
+            ROADMAP
+          </motion.h2>
+          
+          <motion.p
+            className="max-w-2xl mx-auto text-gray-300 text-xl"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+          </motion.p>
+        </div>
+
+        <motion.div 
+          className="grid gap-8 md:grid-cols-3 bg-transparent"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          {roadmapData.map(({ quarter, color, categories }, i) => (
+            <motion.div
+              key={i}
+              variants={itemVariants}
+              className="group bg-transparent"
+            >
+              <div className="relative rounded-2xl border border-gray-800/80 bg-gray-900/50 backdrop-blur-sm p-8 h-full overflow-hidden transition-all duration-300 hover:border-cyan-500/50 hover:shadow-[0_0_30px_rgba(6,182,212,0.15)]">
+                
+
+                
+                {/* Quarter and icon */}
+                <div className="flex items-center justify-between mb-6">
+                  <div className="relative inline-flex p-3 rounded-lg bg-cyan-500/10 border border-cyan-500/20">
+                    {(() => {
+                      const Icon = categories[0].icon;
+                      return <Icon className="h-6 w-6 text-cyan-400" strokeWidth={2} />;
+                    })()}
+                  </div>
+                  <h3 className="text-2xl font-bold text-white tracking-wide">
+                    {quarter}
+                  </h3>
+                </div>
+                
+                {/* Content */}
+                <div className="space-y-8">
+                  {categories.map(({ icon: Icon, title, points }, catIndex) => (
+                    <div key={catIndex} className={catIndex > 0 ? "pt-6 border-t border-gray-800/50" : ""}>
+                      <div className="flex items-center gap-3 mb-4">
+                        <Icon className="h-5 w-5 text-cyan-400" strokeWidth={2} />
+                        <h4 className="text-xl font-bold text-white">
+                          {title}
+                          <div className="h-px w-12 bg-gradient-to-r from-cyan-400 to-transparent mt-1"></div>
+                        </h4>
+                      </div>
+                      <ul className="space-y-3">
+                        {points.map((point, pIndex) => (
+                          <motion.li 
+                            key={pIndex}
+                            initial={{ opacity: 0, x: -10 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ delay: pIndex * 0.1 + 0.3 }}
+                            viewport={{ once: true }}
+                            className="text-gray-300 flex items-start"
+                          >
+                            <span className="text-cyan-400 mr-2">•</span>
+                            <span>{point}</span>
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-            <ul className="list-disc list-inside text-gray-300 text-sm space-y-1 pl-1">
-              {points.map((point) => (
-                <li key={point}>{point}</li>
-              ))}
-            </ul>
-          </motion.div>
-        ))}
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
-    </div>
-  </section>
-);
-export default RoadmapSection;
+    </section>
+  );
+}
