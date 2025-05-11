@@ -8,7 +8,7 @@ export default function GettingStartedSection() {
     {
       id: "telegram-bot",
       title: "TELEGRAM BOT",
-      image: "/telegrambot-ios-android-mockup.png",
+      image: "/telegrambot-ios-android-mockup.jpg",
       description: `Swap tokens inside Telegram — fast, secure and friction-free.
 Powered by Monad's high-performance chain, the bot executes
 trades in milliseconds with minimal steps — no DEX hopping,

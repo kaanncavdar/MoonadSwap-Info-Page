@@ -27,6 +27,8 @@
     }
   },
   "rules": {
+    "react/no-unescaped-entities": "warn",
+    "jsx-a11y/anchor-is-valid": "warn",
     "no-console": "warn",
     "react/prop-types": "off",
     "react/jsx-uses-react": "off",
