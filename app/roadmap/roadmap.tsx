@@ -23,7 +23,6 @@ const roadmapData: QuarterData[] = [
         points: [
           "Telegram bot live deployment",
           "Advanced swap features implementation",
-          "Multi-chain token support integration",
           "User feedback analytics system",
         ],
       },

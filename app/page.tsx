@@ -110,7 +110,7 @@ export default function Home() {
               transition={{ duration: 0.7, delay: 0.3 }}
               className="text-white font-extrabold text-6xl leading-tight mb-8 tracking-tight"
             >
-              Lightning-fast crypto, right where you chat
+              Swap with Anytime, Everywhere on Monad.
             </motion.h1>
 
             <motion.p
@@ -121,9 +121,8 @@ export default function Home() {
             >
               Swap in seconds. Own every trade.
               <br />
-              MoonadSwap is the Telegram-native DEX bot that turns "/buy" into
-              instant, slippage-smart swaps on the Monad chain—no tab-hopping,
-              no failed TXs, just pure speed.
+              MoonadSwap is the Telegram-native DEX bot to deliver the most seamless, 
+              secure and lightning-fast swapping experience directly inside Telegram.
             </motion.p>
 
             <motion.a

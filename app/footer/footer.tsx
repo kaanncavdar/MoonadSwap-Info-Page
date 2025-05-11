@@ -48,8 +48,8 @@ const Footer = () => {
                 Lightning-Fast Swaps on Telegram
               </h3>
               <p className="text-gray-300 text-sm max-w-md">
-                MoonadSwap is the Telegram-native DEX bot that turns "/buy" into
-                instant, slippage-smart swaps on the Monad chain.
+                Fast. Simple. Secure.
+                Telegram-Native Swap Bot on Monad.
               </p>
 
               <a
