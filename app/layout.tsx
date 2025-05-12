@@ -5,6 +5,7 @@ import { Providers } from "./providers";
 import { siteConfig } from "@/config/site";
 import { Navbar } from "@/components/navbar";
 import CursorProvider from "@/components/CursorProvider";
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
   title: {
@@ -42,6 +43,7 @@ export default function RootLayout({
           "bg-[conic-gradient(from_230.29deg_at_51.63%_52.16%,_#1B0F3B_0deg,_#1B0F3B_67.5deg,_#432371_198.75deg,_#6E2FB4_250.88deg,_#1B0F3B_360deg)]"
         )}
       >
+        <Analytics />
         <Providers themeProps={{ attribute: "class" }}>
           <CursorProvider />
           <div className="relative flex flex-col min-h-screen">
