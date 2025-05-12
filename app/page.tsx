@@ -116,7 +116,7 @@ export default function Home() {
               transition={{ duration: 0.7, delay: 0.3 }}
               className="text-white font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight mb-6 sm:mb-8 tracking-tight"
             >
-              Swap with Anytime, Everywhere on Monad.
+              Swap anytime, anywhere — powered by Monad.
             </motion.h1><motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
