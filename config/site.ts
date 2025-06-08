@@ -32,13 +32,13 @@ export const siteConfig = {
     },
     {
       label: "Docs",
-      href: "https://docs.moonadswap.xyz",
+      href: "https://moonadswaps-organization.gitbook.io/moonadswap-docs/",
       target: "_blank",
       rel: "noopener noreferrer",
     },
   ],
   links: {
     twitter: "https://x.com/moonadswap",
-    docs: "https://docs.moonadswap.xyz"
+    docs: "https://moonadswaps-organization.gitbook.io/moonadswap-docs/"
   },
 };
