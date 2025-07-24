@@ -132,8 +132,7 @@ export default function Home() {
             <motion.a
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.95 }}
-              href=""
-              onClick={(e) => e.preventDefault()}
+              href="https://t.me/moonswapxbot"
               target="_blank"
               rel="noopener noreferrer"              className="inline-flex items-center gap-3 bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-400 
                          border border-cyan-500/30 hover:border-cyan-500/50 font-medium px-4 sm:px-8 py-3 sm:py-4 

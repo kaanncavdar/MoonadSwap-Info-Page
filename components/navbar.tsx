@@ -109,8 +109,7 @@ export const Navbar = () => {
         </NavbarItem>
         <NavbarItem>
           <Link
-            href=""
-            onClick={(e) => e.preventDefault()}
+            href="https://t.me/moonswapxbot"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1 sm:gap-2 bg-violet-500 px-2 sm:px-3 py-1.5 sm:py-2 rounded-xl shadow-md hover:bg-violet-600 transition-all"
@@ -154,9 +153,8 @@ export const Navbar = () => {
         ))}
         <NavbarMenuItem>
           <Link
-            href=""
+            href="https://t.me/moonswapxbot"
             target="_blank"
-            onClick={(e) => e.preventDefault()}
             rel="noopener noreferrer"
             className="flex items-center gap-3 bg-violet-500 px-4 py-2 rounded-xl shadow-md hover:bg-violet-600 transition-all"
           >

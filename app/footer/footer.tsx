@@ -49,10 +49,10 @@ const Footer = () => {
               <p className="text-gray-300 text-sm max-w-md">
                 Fast. Simple. Secure.
                 Telegram-Native Swap Bot on Monad.
-              </p>              <a
-                href=""
+              </p>              
+              <a
+                href="https://t.me/moonswapxbot"
                 target="_blank"
-                onClick={(e) => e.preventDefault()}
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-400 
                 border border-cyan-500/30 hover:border-cyan-500/50 px-4 sm:px-6 py-2 sm:py-3 rounded-lg transition-all duration-300 w-fit text-sm sm:text-base"
@@ -92,13 +92,15 @@ const Footer = () => {
               </div>
             </form>
 
-            {/* Social Links */}            <div className="flex flex-col items-start md:items-end gap-3">
+            {/* Social Links */}
+            <div className="flex flex-col items-start md:items-end gap-3">
               <h3 className="text-white font-medium">Follow Us</h3>
               <div className="flex gap-3">
                 <a
-                  href="#footer"
-                  onClick={(e) => e.preventDefault()}
-                  className="pointer-events-none p-2.5 bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 rounded-lg transition-all duration-300 opacity-50 cursor-not-allowed"
+                  href="https://t.me/moonswapxbot"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2.5 bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-400 border border-cyan-500/30 hover:border-cyan-500/50 rounded-lg transition-all duration-300"
                   title="Telegram Announcements"
                 >
                   <PiTelegramLogo size={20} />

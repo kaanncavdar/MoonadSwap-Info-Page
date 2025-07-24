@@ -15,8 +15,8 @@ trades in milliseconds with minimal steps — no DEX hopping,
 no browser required.`,
       cta: {
         label: "OPEN TELEGRAM BOT",
-        href: "#getting-started",
-        disabled: true,
+        href: "https://t.me/moonswapxbot",
+        disabled: false,
       },
     },
     {
