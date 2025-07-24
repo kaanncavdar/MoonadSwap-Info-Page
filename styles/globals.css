@@ -4,6 +4,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px;
   }
   
 
@@ -29,8 +30,6 @@ html {
     animation: logoPulse 4s ease-in-out infinite;
   }
 
-
-/* Custom cursor only for desktop/larger screens */
 @media (min-width: 768px) {
   html, body, * {
     cursor: url("/cursor-sniper.png") 16 16, none !important;
@@ -46,12 +45,30 @@ html {
   }
 }
 
-
 a:hover, button:hover {
   transform: translateY(-1px);
+}
 
+.motion-element {
+  will-change: transform, opacity;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+@container (min-width: 768px) {
+  .responsive-text {
+    font-size: 1.5rem;
+  }
+}
+
+.critical {
+  background: conic-gradient(from 230.29deg at 51.63% 52.16%, #1B0F3B 0deg, #1B0F3B 67.5deg, #432371 198.75deg, #6E2FB4 250.88deg, #1B0F3B 360deg);
+  background-size: 300% 300%;
 }
 
 
-    
-  
+
+

@@ -10,12 +10,22 @@ import {
   NavbarMenuItem,
 } from "@heroui/navbar";
 import { Link } from "@heroui/link";
+import dynamic from "next/dynamic";
 import NextLink from "next/link";
 import clsx from "clsx";
 import { siteConfig } from "@/config/site";
 import { TwitterIcon, Logo } from "@/components/icons";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaTelegramPlane } from "react-icons/fa";
+
+// Dynamic import icons
+const FaXTwitter = dynamic(
+  () => import("react-icons/fa6").then((mod) => ({ default: mod.FaXTwitter })),
+  { ssr: false }
+);
+const FaTelegramPlane = dynamic(
+  () => import("react-icons/fa").then((mod) => ({ default: mod.FaTelegramPlane })),
+  { ssr: false }
+);
+
 import { useState } from "react";
 
 export const Navbar = () => {
