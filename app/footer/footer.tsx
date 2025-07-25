@@ -97,7 +97,7 @@ const Footer = () => {
               <h3 className="text-white font-medium">Follow Us</h3>
               <div className="flex gap-3">
                 <a
-                  href="https://t.me/moonswapxbot"
+                  href="https://t.me/+MhYImDQg8X9kODA8"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2.5 bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-400 border border-cyan-500/30 hover:border-cyan-500/50 rounded-lg transition-all duration-300"

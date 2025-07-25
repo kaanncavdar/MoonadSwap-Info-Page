@@ -171,7 +171,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-400 
                          border border-cyan-500/30 hover:border-cyan-500/50 font-medium px-4 sm:px-8 py-3 sm:py-4 
-                         rounded-xl transition-all duration-300 text-sm sm:text-lg"
+                         rounded-xl transition-all duration-300 text-sm sm:text-lg mb-4 sm:mb-0 sm:mr-4"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -182,6 +182,28 @@ export default function Home() {
                 <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.1-.357.1-.496.03l.204-3.096 5.584-5.045c.24-.213-.054-.334-.373-.121l-6.871 4.326-2.962-.924c-.643-.203-.658-.643.136-.953l11.566-4.458c.538-.196 1.006.128.832.941z" />
               </svg>
               Launch on Telegram
+              <ExternalLink className="h-4 w-4" />
+            </motion.a>
+
+            <motion.a
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.95 }}
+              href="https://t.me/+MhYImDQg8X9kODA8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 bg-purple-500/20 hover:bg-purple-500/30 text-purple-400 
+                         border border-purple-500/30 hover:border-purple-500/50 font-medium px-4 sm:px-8 py-3 sm:py-4 
+                         rounded-xl transition-all duration-300 text-sm sm:text-lg"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.1-.357.1-.496.03l.204-3.096 5.584-5.045c.24-.213-.054-.334-.373-.121l-6.871 4.326-2.962-.924c-.643-.203-.658-.643.136-.953l11.566-4.458c.538-.196 1.006.128.832.941z" />
+              </svg>
+              Join Community
               <ExternalLink className="h-4 w-4" />
             </motion.a>
           </motion.div>
