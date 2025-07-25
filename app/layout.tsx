@@ -6,6 +6,7 @@ import { siteConfig } from "@/config/site";
 import { Navbar } from "@/components/navbar";
 import CursorProvider from "@/components/CursorProvider";
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: {
@@ -44,6 +45,7 @@ export default function RootLayout({
         )}
       >
         <Analytics />
+        <SpeedInsights/>
         <Providers themeProps={{ attribute: "class" }}>
           <CursorProvider />
           <div className="relative flex flex-col min-h-screen">
